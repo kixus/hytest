@@ -54,7 +54,8 @@
 (defn cmp-base [op lhs rhs fms]
   (setv ln (gensym) rn (gensym) astr (gensym))
   `(do
-    (setv ~ln ~lhs ~rn ~rhs ~astr ~(if-python2 `basestring `(, str bytes)))
+    (setv ~ln ~lhs ~rn ~rhs ~astr (, str bytes))
+;    (setv ~ln ~lhs ~rn ~rhs ~astr ~(if-python2 `basestring `(, str bytes)))
     ~(tst `(~op ~ln ~rn)
           `(+
             ~(fm fms `(repr ~ln) `(repr ~rn))
