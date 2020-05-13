@@ -28,7 +28,7 @@ with open(os.path.join(this_dir, 'README.rst')) as f:
     readme = f.read()
 
 with open(os.path.join(this_dir, 'hytest.hy')) as f:
-    version = re.search(r'\(def __version__ "([^"]+)"\)', f.read()).group(1)
+    version = re.search(r'\(setv __version__ "([^"]+)"\)', f.read()).group(1)
 
 with open(os.path.join(this_dir, 'requirements.txt')) as f:
     hy_ver = f.read().strip()
