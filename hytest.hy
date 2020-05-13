@@ -4,13 +4,13 @@
         traceback
         warnings
         sys)
-
-(if-python2
-  (try
-    (import [cStringIO [StringIO]])
-    (except []
-      (import [StringIO [StringIO]])))
-  (import [io [StringIO]]))
+(import [io [StringIO]])
+;(if-python2
+;  (try
+;    (import [cStringIO [StringIO]])
+;    (except []
+;      (import [StringIO [StringIO]])))
+;  (import [io [StringIO]]))
 
 (def __version__ "0.2")
 
