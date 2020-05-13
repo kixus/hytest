@@ -193,7 +193,7 @@
   (setv sname (.replace (str name) "_" "-"))
   (if-not (in sname opmap)
     (macro-error name (% "unknown comparator: %s" sname)))
-  ((get opmap sname) *args))
+  ((get opmap sname) #* args))
 
 (setv mods [])
 (setv tests (OrderedDict))
