@@ -1,4 +1,4 @@
-(import [hy.importer [import-file-to-module]]
+(import [hy.importer [_import_from_path :as import-file-to-module]]
         [collections [OrderedDict]]
         [os [walk getcwd path]]
         traceback
@@ -19,13 +19,13 @@
   (except [])
   (else (colorama.init)))
 
-(try
   (import [hy.models [HyExpression HyInteger HyString HySymbol]])
-  (except []
-    (import [hy.models.expression [HyExpression]
-             hy.models.integer [HyInteger]
-             hy.models.string [HyString]
-             hy.models.symbol [HySymbol]])))
+; (try
+;   (except []
+;     (import [hy.models.expression [HyExpression]
+;              hy.models.integer [HyInteger]
+;              hy.models.string [HyString]
+;              hy.models.symbol [HySymbol]])))
 
 (defclass SkipException [Exception] [])
 (defclass FailException [Exception] [])
