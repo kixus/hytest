@@ -12,7 +12,7 @@
 ;      (import [StringIO [StringIO]])))
 ;  (import [io [StringIO]]))
 
-(def __version__ "0.2")
+(setv __version__ "0.2")
 
 (try
   (import colorama)
@@ -104,7 +104,7 @@
 (defn test-in [x sq] (cmp-base `in x sq "item %s not in sequence %s"))
 (defn test-not-in [x sq] (cmp-base `not-in x sq "item %s is in sequence %s"))
 
-(def raise-var (gensym))
+(setv raise-var (gensym))
 
 (defn test-raises-any [&rest body]
   `(try
@@ -148,7 +148,7 @@
         (fail-test ~(fm "raised exception message '%s' matched %s"
             `(str ~raise-var) m))))))
 
-(def opmap {"=" test-eq
+(setv opmap {"=" test-eq
             "!=" test-ne
             "<" test-lt
             ">" test-gt
@@ -195,8 +195,8 @@
     (macro-error name (% "unknown comparator: %s" sname)))
   (apply (get opmap sname) args))
 
-(def mods [])
-(def tests (OrderedDict))
+(setv mods [])
+(setv tests (OrderedDict))
 
 (defn add-test [func file]
   (if-not (in file tests)
